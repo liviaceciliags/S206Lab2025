@@ -28,6 +28,7 @@ describe("Teste da criação, resgistro e login", ()=>{
         cy.get('.btn-primary').click()
         cy.get('h1.ng-binding').should("contain.text", infos[0])
     })
+    // Atividade 2 - Teste de login com falha
     it ("Teste de login com Falha", ()=>{
         let infos = criarUser()
         cy.visit("https://globalsqa.com/angularJs-protractor/registration-login-example/#/login")
