@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "e0c1ac7f-a9d1-4851-b466-98972997a6f0",
+		"name": "FetinNet Aula",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45101404",
+		"_collection_link": "https://blue-astronaut-3739833.postman.co/workspace/L%C3%ADvia-Cec%C3%ADlia-Gomes-Silva's-Wor~9d7494f5-4e8d-4a57-89ac-7a15ea7ff9c4/collection/45101404-e0c1ac7f-a9d1-4851-b466-98972997a6f0?action=share&source=collection_link&creator=45101404"
+	},
+	"item": [
+		{
+			"name": "https://fetin-api.confianopai.com/get-csrf-token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "let response = pm.response.json();\r\npm.environment.set(\"Cokie\", response.token);",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}get-csrf-token",
+					"host": [
+						"{{BaseURL}}get-csrf-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://fetin-api.confianopai.com/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"lara@\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}login",
+					"host": [
+						"{{BaseURL}}login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
