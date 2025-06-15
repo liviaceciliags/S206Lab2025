@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "67ce816a-868b-421b-b95b-7795d9241baa",
+		"name": "Aula3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45101404",
+		"_collection_link": "https://blue-astronaut-3739833.postman.co/workspace/L%C3%ADvia-Cec%C3%ADlia-Gomes-Silva's-Wor~9d7494f5-4e8d-4a57-89ac-7a15ea7ff9c4/collection/45101404-67ce816a-868b-421b-b95b-7795d9241baa?action=share&source=collection_link&creator=45101404"
+	},
+	"item": [
+		{
+			"name": "https://{{BASEURL}}/cookies/set?freeform={{cookies}}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{BASEURL}}/cookies/set?freeform={{cookies}}\n",
+					"protocol": "https",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"cookies",
+						"set"
+					],
+					"query": [
+						{
+							"key": "freeform",
+							"value": "{{cookies}}\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{BASEURL}}/cookies",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{BASEURL}}/cookies",
+					"protocol": "https",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"cookies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{BASEURL}}/cookies/delete?freeform={{cookies}}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{BASEURL}}/cookies/delete?freeform={{cookies}}",
+					"protocol": "https",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"cookies",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "freeform",
+							"value": "{{cookies}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

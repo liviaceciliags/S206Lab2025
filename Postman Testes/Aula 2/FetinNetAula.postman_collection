@@ -9,6 +9,19 @@
 	"item": [
 		{
 			"name": "https://fetin-api.confianopai.com/get-csrf-token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();\r",
+							"pm.environment.set('Cokie', response.token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -20,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "let response = pm.response.json();\r\npm.environment.set(\"Cokie\", response.token);",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,7 +67,13 @@
 			],
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cokie}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"username\": \"lara@\",\r\n    \"password\": \"123\"\r\n}",
