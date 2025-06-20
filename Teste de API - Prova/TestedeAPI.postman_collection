@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "30b0bc03-f450-499a-93f5-e4cd738585c9",
+		"name": "Teste de API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45101404",
+		"_collection_link": "https://blue-astronaut-3739833.postman.co/workspace/L%C3%ADvia-Cec%C3%ADlia-Gomes-Silva's-Wor~9d7494f5-4e8d-4a57-89ac-7a15ea7ff9c4/collection/45101404-30b0bc03-f450-499a-93f5-e4cd738585c9?action=share&source=collection_link&creator=45101404"
+	},
+	"item": [
+		{
+			"name": "Deve retornar status 200 e a lista de personagens",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deve retornar status 200 e a lista de personagens\", function () {\r",
+							"    pm.response.to.have.status(200);  // Verifica se o status é 200\r",
+							"    pm.response.to.be.json;  // Verifica se a resposta é em JSON\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response.results).to.be.an('array').that.is.not.empty; \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}api/people/",
+					"host": [
+						"{{BASEURL}}api"
+					],
+					"path": [
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deve retornar dados corretos para o personagem Luke Skywalker",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deve retornar dados corretos para o personagem Luke Skywalker\", function () {\r",
+							"    pm.response.to.have.status(200);  // Verifica se o status é 200\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response.name).to.eql(\"Luke Skywalker\");  // Verifica se o nome é Luke Skywalker\r",
+							"    pm.expect(response.gender).to.eql(\"male\");  // Verifica o gênero\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASEURL}}api/people/1/",
+					"host": [
+						"{{BASEURL}}api"
+					],
+					"path": [
+						"people",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deve retornar status 200 e a lista de planetas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deve retornar status 200 e a lista de planetas\", function () {\r",
+							"    pm.response.to.have.status(200);  // Verifica se o status é 200\r",
+							"    pm.response.to.be.json;  // Verifica se a resposta é em JSON\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response.results).to.be.an('array').that.is.not.empty;  // Verifica se a resposta contém uma lista de planetas não vazia\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}api/planets/",
+					"host": [
+						"{{BASEURL}}api"
+					],
+					"path": [
+						"planets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deve criar um novo personagem com sucesso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"SWAPI não permite criar personagens\", () => {\r",
+							"  pm.response.to.have.status(405);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Darth Vader\",\r\n  \"height\": \"202\",\r\n  \"mass\": \"136\",\r\n  \"hair_color\": \"none\",\r\n  \"skin_color\": \"white\",\r\n  \"eye_color\": \"yellow\",\r\n  \"birth_year\": \"41.9BBY\",\r\n  \"gender\": \"male\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASEURL}}api/people/",
+					"host": [
+						"{{BASEURL}}api"
+					],
+					"path": [
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

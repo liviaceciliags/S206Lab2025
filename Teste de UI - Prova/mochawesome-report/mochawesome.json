@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-20T01:29:55.651Z",
+    "end": "2025-06-20T01:30:04.687Z",
+    "duration": 9036,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8ca8f826-fe67-4f1e-b918-dd2f92b4ab6d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\prova.cy.js",
+      "file": "cypress\\e2e\\prova.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3feea8e6-f547-42cf-ab63-c11fc3e6fe9e",
+          "title": "Testes de Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve logar com sucesso",
+              "fullTitle": "Testes de Login Deve logar com sucesso",
+              "timedOut": null,
+              "duration": 2856,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "fazerLogin('standard_user', 'secret_sauce');\ncy.get('[data-test=\"secondary-header\"]').contains('Products').should('be.visible');",
+              "err": {},
+              "uuid": "7ab577ec-e8dd-4607-8888-767f6ff5ab1b",
+              "parentUUID": "3feea8e6-f547-42cf-ab63-c11fc3e6fe9e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve falhar ao logar com senha incorreta",
+              "fullTitle": "Testes de Login Deve falhar ao logar com senha incorreta",
+              "timedOut": null,
+              "duration": 1215,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "fazerLogin('standard_user', 'senha_errada');\ncy.get('[data-test=\"error\"]').should('contain', 'Epic sadface: Username and password do not match any user in this service');",
+              "err": {},
+              "uuid": "2b1d7fd1-120c-4dad-8fae-5294dea10671",
+              "parentUUID": "3feea8e6-f547-42cf-ab63-c11fc3e6fe9e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve falhar ao logar com usuário incorreto",
+              "fullTitle": "Testes de Login Deve falhar ao logar com usuário incorreto",
+              "timedOut": null,
+              "duration": 938,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "fazerLogin('usuario_errado', 'secret_sauce');\ncy.get('[data-test=\"error\"]').should('contain', 'Epic sadface: Username and password do not match any user in this service');",
+              "err": {},
+              "uuid": "f76aa925-4c93-414a-9e25-4e0b5cd5b299",
+              "parentUUID": "3feea8e6-f547-42cf-ab63-c11fc3e6fe9e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve adicionar um produto ao carrinho",
+              "fullTitle": "Testes de Login Deve adicionar um produto ao carrinho",
+              "timedOut": null,
+              "duration": 971,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "fazerLogin('standard_user', 'secret_sauce');\ncy.get('[data-test=\"add-to-cart-sauce-labs-backpack\"]').click();\ncy.get('[data-test=\"remove-sauce-labs-backpack\"]').contains('Remove').should('be.visible');",
+              "err": {},
+              "uuid": "ab0b1bd3-2a93-4406-9766-813777cec99d",
+              "parentUUID": "3feea8e6-f547-42cf-ab63-c11fc3e6fe9e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7ab577ec-e8dd-4607-8888-767f6ff5ab1b",
+            "2b1d7fd1-120c-4dad-8fae-5294dea10671",
+            "f76aa925-4c93-414a-9e25-4e0b5cd5b299",
+            "ab0b1bd3-2a93-4406-9766-813777cec99d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5980,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
